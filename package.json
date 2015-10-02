@@ -1,0 +1,32 @@
+{
+  "name": "ssb-pm",
+  "version": "1.0.0",
+  "description": "Send and receive encrypted messages on SSB.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pfraze/ssb-pm.git"
+  },
+  "keywords": [
+    "ssb",
+    "private",
+    "message"
+  ],
+  "author": "Paul Frazee <pfrazee@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pfraze/ssb-pm/issues"
+  },
+  "homepage": "https://github.com/pfraze/ssb-pm#readme",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "moment": "^2.10.6",
+    "pull-stream": "^2.28.4",
+    "ssb-client": "^2.0.0",
+    "ssb-msg-schemas": "^5.0.0",
+    "ssb-ref": "^2.2.1"
+  }
+}
