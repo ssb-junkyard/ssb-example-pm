@@ -1,0 +1,192 @@
+<html>
+    <head>
+    <title>Example Private Message - Scuttlebot - SSBC</title>
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/atelier-forest-light.css">
+    <script src="/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+    <body>
+      <div id="topnav">
+    <div id="topnav-inner">
+      <a class="topnav-item " href="/" title="Home">
+      Home<br><small>SSBC</small>
+    </a>
+      <a class="topnav-item " href="/patchwork" title="Patchwork">
+      Patchwork<br><small>Social App</small>
+    </a>
+      <a class="topnav-item selected" href="/scuttlebot" title="Scuttlebot">
+      Scuttlebot<br><small>P2P Log Store</small>
+    </a>
+      <a class="topnav-item " href="/docs" title="Documentation">
+      Documentation<br><small>APIs, Articles</small>
+    </a>
+    </div>
+  </div>
+      <div id="layout">
+        <div id="leftnav">
+      <div class="leftnav-item ">
+      <a href="/scuttlebot" title="Scuttlebot">Scuttlebot</a>
+    </div>
+      <div class="leftnav-subitems">
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/install.html" title="Install">Install</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/tutorial.html" title="Tutorial">Tutorial</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/api/scuttlebot.html" title="API / CLI Reference">API / CLI Reference</a>
+    </div>
+      </div>
+      <div class="leftnav-item">Examples</div>
+      <div class="leftnav-subitems">
+        <div class="leftnav-item ">
+      <a href="/ssb-blessed-dashboard" title="Blessed Dashboard">Blessed Dashboard</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/ssb-example-whois" title="Example "Whois"">Example "Whois"</a>
+    </div>
+        <div class="leftnav-item selected">
+      <a href="/ssb-example-pm" title="Private Message">Private Message</a>
+    </div>
+      </div>
+      <div class="leftnav-item">Key Concepts</div>
+      <div class="leftnav-subitems">
+        <div class="leftnav-item ">
+      <a href="/secure-scuttlebutt" title="Secure Scuttlebutt: a global database protocol">Secure Scuttlebutt: a global database protocol</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/ssb/linking.html" title="Content-Hash Linking">Content-Hash Linking</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/ssb/secret-handshake.html" title="Secret Handshake: a secure channel protocol">Secret Handshake: a secure channel protocol</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/ssb/end-to-end-encryption.html" title="Private Box: metadata-free encryption">Private Box: metadata-free encryption</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/ssb/faq.html" title="Frequently Asked Questions">Frequently Asked Questions</a>
+    </div>
+      </div>
+      <div class="leftnav-item">Howto Guides</div>
+      <div class="leftnav-subitems">
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-setup-a-pub.html" title="Setup a Pub">Setup a Pub</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-create-a-js-client.html" title="Create a JS Client">Create a JS Client</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-get-your-id.html" title="Get your ID">Get your ID</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-get-your-address.html" title="Get your Address">Get your Address</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-publish-a-post.html" title="Publish a Post">Publish a Post</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-publish-a-file.html" title="Publish a File">Publish a File</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-publish-encrypted-messages.html" title="Publish Encrypted Messages">Publish Encrypted Messages</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-follow-unfollow.html" title="Follow/Unfollow">Follow/Unfollow</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-announce-a-pub-server.html" title="Announce a Pub Server">Announce a Pub Server</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-create-an-invite.html" title="Create an Invite">Create an Invite</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-use-an-invite.html" title="Use an Invite">Use an Invite</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-update-your-profile.html" title="Update your Profile">Update your Profile</a>
+    </div>
+      </div>
+    </div>
+        <div id="content">
+          <h1 id="example-private-message">Example Private Message</h1>
+<p>Send and receive encrypted messages on ssb</p>
+<pre><code>$ git clone https://github.com/ssbc/ssb-example-pm.git
+$ cd ssb-example-pm
+$ npm install
+
+$ ./ssb-example-pm.js -h
+List messages: ssb-example-pm.js
+Send message:  ssb-example-pm.js {recp} [message...]
+
+$ ./ssb-example-pm.js @hxGxqPrplLjRG2vtjQL87abX4QKqeLgCwQpS730nNwE=.ed25519 \
+  &quot;hello, this is a big secret&quot;
+$ ./ssb-example-pm.js
+
+a minute ago   you 
+
+hello there, this is a big secret
+</code></pre><h2 id="how-it-works">How it works</h2>
+<p>Normally, messages have an object in the <code>content</code> attribute.
+If <code>content</code> is a string, that means the message is encrypted -- the string is the base64-encoded ciphertext.
+Recipients are hidden, so we try to decrypt.
+If successful, the message was for the user:</p>
+<pre><code class="lang-js">// list private messages
+function listPMs (sbot, selfId) {
+  pull(
+    // all type: post messages, in order received
+    sbot.messagesByType(&#39;post&#39;),
+
+    // encrypted?
+    pull.filter(function (msg) {
+      return typeof msg.value.content === &#39;string&#39;
+    }),
+
+    // attempt to decrypt    
+    pull.asyncMap(function (msg, cb) {
+      sbot.private.unbox(msg.value.content, function (err, content) {
+        if (content)
+          msg.value.content = content
+        cb(null, msg)
+      })
+    }),
+
+    // successfully decrypted?
+    pull.filter(function (msg) {
+      return typeof msg.value.content !== &#39;string&#39;
+    }),
+
+    // render
+    pull.drain(renderPost.bind(null, selfId), function (err) {
+      if (err) throw err
+      sbot.close()
+    })
+  )
+}
+</code></pre>
+<p>To publish, we use <a href="http://ssbc.github.io/docs/api/ssb-msg-schemas.html">ssb-msg-schemas</a> to build the message content, and <a href="https://github.com/ssbc/scuttlebot/blob/master/plugins/private.md#publish-async"><code>sbot.private.publish</code></a> to write to the feed.
+Note, the local user is included in the recipients, so we can read our own messages.</p>
+<pre><code class="lang-js">function publishPM (sbot, selfId, recpId, msg) {
+  var recps = (selfId !== recpId) ? [selfId, recpId] : [selfId]
+
+  // create the type: post message
+  var post = schemas.post(
+    msg,  // text content
+    null, // reply topmost msg
+    null, // reply parent
+    null, // mention links
+    recps // recipient links
+  )
+  sbot.private.publish(post, recps, function (err, msg) {
+    if (err) throw err
+    sbot.close()
+  })
+}
+</code></pre>
+
+        </div>
+      </div>
+    </body>
+  </html>
