@@ -14,7 +14,7 @@
       Home<br><small>SSBC</small>
     </a>
       <a class="topnav-item " href="/patchwork" title="Patchwork">
-      Patchwork<br><small>Social App</small>
+      Patchwork<br><small>Social Messaging App</small>
     </a>
       <a class="topnav-item selected" href="/scuttlebot" title="Scuttlebot">
       Scuttlebot<br><small>P2P Log Store</small>
@@ -37,7 +37,7 @@
       <a href="/docs/scuttlebot/tutorial.html" title="Tutorial">Tutorial</a>
     </div>
         <div class="leftnav-item ">
-      <a href="/docs/api/scuttlebot.html" title="API / CLI Reference">API / CLI Reference</a>
+      <a href="/scuttlebot/api.html" title="API / CLI Reference">API / CLI Reference</a>
     </div>
       </div>
       <div class="leftnav-item">Examples</div>
@@ -50,24 +50,6 @@
     </div>
         <div class="leftnav-item selected">
       <a href="/ssb-example-pm" title="Private Message">Private Message</a>
-    </div>
-      </div>
-      <div class="leftnav-item">Key Concepts</div>
-      <div class="leftnav-subitems">
-        <div class="leftnav-item ">
-      <a href="/secure-scuttlebutt" title="Secure Scuttlebutt: a global database protocol">Secure Scuttlebutt: a global database protocol</a>
-    </div>
-        <div class="leftnav-item ">
-      <a href="/docs/ssb/linking.html" title="Content-Hash Linking">Content-Hash Linking</a>
-    </div>
-        <div class="leftnav-item ">
-      <a href="/docs/ssb/secret-handshake.html" title="Secret Handshake: a secure channel protocol">Secret Handshake: a secure channel protocol</a>
-    </div>
-        <div class="leftnav-item ">
-      <a href="/docs/ssb/end-to-end-encryption.html" title="Private Box: metadata-free encryption">Private Box: metadata-free encryption</a>
-    </div>
-        <div class="leftnav-item ">
-      <a href="/docs/ssb/faq.html" title="Frequently Asked Questions">Frequently Asked Questions</a>
     </div>
       </div>
       <div class="leftnav-item">Howto Guides</div>
@@ -121,8 +103,7 @@ $ ./ssb-example-pm.js -h
 List messages: ssb-example-pm.js
 Send message:  ssb-example-pm.js {recp} [message...]
 
-$ ./ssb-example-pm.js @hxGxqPrplLjRG2vtjQL87abX4QKqeLgCwQpS730nNwE=.ed25519 \
-  &quot;hello, this is a big secret&quot;
+$ ./ssb-example-pm.js @hxGxqPrplLjRG2vtjQL87abX4QKqeLgCwQpS730nNwE=.ed25519 &quot;hello, this is a big secret&quot;
 $ ./ssb-example-pm.js
 
 a minute ago   you 
@@ -140,9 +121,7 @@ function listPMs (sbot, selfId) {
     sbot.messagesByType(&#39;post&#39;),
 
     // encrypted?
-    pull.filter(function (msg) {
-      return typeof msg.value.content === &#39;string&#39;
-    }),
+    pull.filter(function (msg) { return typeof msg.value.content === &#39;string&#39; }),
 
     // attempt to decrypt    
     pull.asyncMap(function (msg, cb) {
@@ -154,9 +133,7 @@ function listPMs (sbot, selfId) {
     }),
 
     // successfully decrypted?
-    pull.filter(function (msg) {
-      return typeof msg.value.content !== &#39;string&#39;
-    }),
+    pull.filter(function (msg) { return typeof msg.value.content !== &#39;string&#39; }),
 
     // render
     pull.drain(renderPost.bind(null, selfId), function (err) {
@@ -166,7 +143,7 @@ function listPMs (sbot, selfId) {
   )
 }
 </code></pre>
-<p>To publish, we use <a href="http://ssbc.github.io/docs/api/ssb-msg-schemas.html">ssb-msg-schemas</a> to build the message content, and <a href="https://github.com/ssbc/scuttlebot/blob/master/plugins/private.md#publish-async"><code>sbot.private.publish</code></a> to write to the feed.
+<p>To publish, we use <a href="ssb-msg-schemas">https://github.com/ssbc/ssb-message-schemas</a> to build the message content, and <a href="https://github.com/ssbc/scuttlebot/blob/master/plugins/private.md#publish-async"><code>sbot.private.publish</code></a> to write to the feed.
 Note, the local user is included in the recipients, so we can read our own messages.</p>
 <pre><code class="lang-js">function publishPM (sbot, selfId, recpId, msg) {
   var recps = (selfId !== recpId) ? [selfId, recpId] : [selfId]
