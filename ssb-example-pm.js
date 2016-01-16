@@ -13,8 +13,8 @@ if (argv.h || argv.help)
 function usage (errtext) {
   if (errtext)
     console.log(errtext)
-  console.log('List messages: ssb-pm.js')
-  console.log('Send message:  ssb-pm.js {recp} [message...]')
+  console.log('List messages: ssb-example-pm.js')
+  console.log('Send message:  ssb-example-pm.js {recp} [message...]')
   process.exit(1)
 }
 

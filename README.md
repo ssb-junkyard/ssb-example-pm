@@ -1,18 +1,18 @@
-# SSB Private Message
+# Example Private Message
 
 Send and receive encrypted messages on ssb
 
 ```
-$ git clone https://github.com/pfraze/ssb-pm.git
-$ cd ssb-pm
+$ git clone https://github.com/ssbc/ssb-example-pm.git
+$ cd ssb-example-pm
 $ npm install
 
-$ ./ssb-pm.js -h
-List messages: ssb-pm.js
-Send message:  ssb-pm.js {recp} [message...]
+$ ./ssb-example-pm.js -h
+List messages: ssb-example-pm.js
+Send message:  ssb-example-pm.js {recp} [message...]
 
-$ ./ssb-pm.js @hxGxqPrplLjRG2vtjQL87abX4QKqeLgCwQpS730nNwE=.ed25519 "hello, this is a big secret"
-$ ./ssb-pm.js
+$ ./ssb-example-pm.js @hxGxqPrplLjRG2vtjQL87abX4QKqeLgCwQpS730nNwE=.ed25519 "hello, this is a big secret"
+$ ./ssb-example-pm.js
 
 a minute ago   you 
 
