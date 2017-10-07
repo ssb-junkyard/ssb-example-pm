@@ -57,7 +57,7 @@ function listPMs (sbot, selfId) {
 }
 ```
 
-To publish, we use [https://github.com/ssbc/ssb-message-schemas](ssb-msg-schemas) to build the message content, and [`sbot.private.publish`](https://github.com/ssbc/scuttlebot/blob/master/plugins/private.md#publish-async) to write to the feed.
+To publish, we use [ssb-msg-schemas](https://github.com/ssbc/ssb-msg-schemas) to build the message content, and [`sbot.private.publish`](https://github.com/ssbc/scuttlebot/blob/master/plugins/private.md#publish-async) to write to the feed.
 Note, the local user is included in the recipients, so we can read our own messages.
 
 ```js
